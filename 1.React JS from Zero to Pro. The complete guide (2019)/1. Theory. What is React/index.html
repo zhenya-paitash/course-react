@@ -8,16 +8,46 @@
     
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body {background-color: rgb(206, 206, 206);}
+      .car {
+        display: inline-block;
+        border: 1px solid #e6e6e6;
+        border-radius: 5px;
+        box-shadow: 0px 20px 35px rgba(68, 68, 68, 0.3);
+        padding: 10px;
+        margin-right: 10px;
+      }
+    </style>
   </head>
   <body>
+    <!-- <div class="car">
+      <h3>BMX X6</h3>
+      <p>Year: <strong>2017</strong></p>
+    </div> -->
+
     <div id="root"></div>
     <script type="text/babel">
-
-      ReactDOM.render(
-        <h1>Hello, world!</h1>,
-        document.getElementById('root')
-      );
-
+    function Car(args) {
+      return (
+        <div className="car">
+          <h3>{ args.name }</h3>
+          <p>Year: <strong>{ args.year }</strong></p>
+        </div>
+      )
+    }
+    const App = (
+      <div>
+        <Car name="BMW X6" year="2017" />
+        <Car name="Audi A8" year="2015" />
+        <Car name="Ford Focus" year="2014" />
+      </div>
+    )
+    
+    ReactDOM.render(
+      App,
+      document.querySelector('#root')
+    )
     </script>
     <!--
       Note: this page is a great way to try React but it's not suitable for production.
