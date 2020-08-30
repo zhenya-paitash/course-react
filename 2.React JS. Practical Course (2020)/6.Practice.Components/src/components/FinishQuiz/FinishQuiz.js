@@ -3,9 +3,10 @@ import './FinishQuiz.css';
 
 
 export default props => {
-  const successCount = Object.keys(props.results).reduce((sum, key) =>
-      props.results[key] === 'success' ? sum++ : sum
-    , 0);
+  const successCount = Object.keys(props.results).reduce((sum, key) => {
+    if (props.results[key] === 'success') sum++;
+    return sum;
+  }, 0);
 
   return (
     <div className="FinishQuiz">
@@ -31,7 +32,7 @@ export default props => {
 
       <p>Success: {successCount} / {props.quiz.length}</p>
       <div>
-        <button>Retry</button>
+        <button onClick={() => props.onRetry()}>Retry</button>
       </div>
     </div>
   );
