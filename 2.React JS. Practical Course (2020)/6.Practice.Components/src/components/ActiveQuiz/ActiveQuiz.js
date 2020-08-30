@@ -1,6 +1,6 @@
 import React from "react";
 import './ActiveQuiz.css';
-import AnswersList from "../AnswersList";
+import AnswersList from "../ActiveQuiz/AnswersList";
 
 
 export default props => (
