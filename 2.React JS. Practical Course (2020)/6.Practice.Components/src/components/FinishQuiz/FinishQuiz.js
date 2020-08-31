@@ -1,5 +1,6 @@
 import React from "react";
 import './FinishQuiz.css';
+import Button from "../UI/Button";
 
 
 export default props => {
@@ -32,7 +33,8 @@ export default props => {
 
       <p>Success: {successCount} / {props.quiz.length}</p>
       <div>
-        <button onClick={() => props.onRetry()}>Retry</button>
+        <Button type="primary" onClick={props.onRetry}>Retry</Button>
+        <Button type="success">Show Test List</Button>
       </div>
     </div>
   );
