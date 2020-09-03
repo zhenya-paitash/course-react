@@ -1,0 +1,24 @@
+.AnswerItem {
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-bottom: 7px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px 0 rgba(255, 255, 255, 0.1);
+    transition: .2s ease-in-out;
+}
+
+.AnswerItem:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.025);
+    transition: transform .2s linear,
+    background-color .3s ease-in-out;
+}
+
+.AnswerItem.success {
+    background: rgba(161,240,69, 0.7);
+}
+
+.AnswerItem.error {
+    background: rgba(240,87,108, 0.7);
+}
