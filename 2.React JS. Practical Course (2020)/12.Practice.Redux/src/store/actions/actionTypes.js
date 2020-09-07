@@ -7,3 +7,6 @@ export const QUIZ_SET_STATE       = 'QUIZ_SET_STATE';
 export const QUIZ_FINISH          = 'QUIZ_FINISH';
 export const QUIZ_RETRY           = 'QUIZ_RETRY';
 export const QUIZ_NEXT_QUESTION   = 'QUIZ_NEXT_QUESTION';
+
+export const CREATE_QUIZ_QUESTION = 'CREATE_QUIZ_QUESTION';
+export const RESET_QUIZ_CREATION  = 'RESET_QUIZ_CREATION';
