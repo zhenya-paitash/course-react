@@ -2,18 +2,12 @@ import React, {Component} from "react";
 import './Quiz.css';
 import ActiveQuiz from "../../components/ActiveQuiz";
 import FinishQuiz from "../../components/FinishQuiz";
-import axios from "../../axios/axios-quiz";
 import Loader from "../../components/UI/Loader";
+import {connect} from "react-redux";
+import {fetchQuizById} from "../../store/actions/quiz";
 
-export default class Quiz extends Component {
-  state = {
-    isFinish: false,
-    results: {},
-    activeQuestion: 0,
-    answerState: null,
-    quiz: [],
-    loading: true
-  };
+
+class Quiz extends Component {
 
   onAnswerClickHandler = answerId => {
     if (this.state.answerState) {
@@ -63,18 +57,8 @@ export default class Quiz extends Component {
     })
   };
 
-  async componentDidMount() {
-    try {
-      const response = await axios.get(`/quizes/${this.props.match.params.id}.json`);
-      const quiz = response.data;
-
-      this.setState({
-        quiz,
-        loading: false
-      });
-    } catch (e) {
-      console.log(e);
-    }
+  componentDidMount() {
+    this.props.fetchQuizById(this.props.match.params.id)
   }
 
 
@@ -85,7 +69,7 @@ export default class Quiz extends Component {
       activeQuestion,
       answerState,
       quiz
-    } = this.state;
+    } = this.props;
 
     return (
       <div className="Quiz">
@@ -94,7 +78,7 @@ export default class Quiz extends Component {
           <h1>Please answer all questions.</h1>
 
           {
-            this.state.loading
+            this.props.loading || !this.props.quiz
               ? <Loader/>
               : isFinish
                 ? <FinishQuiz
@@ -116,3 +100,22 @@ export default class Quiz extends Component {
     );
   }
 }
+
+
+function mapStateToProps(state) {
+  return {
+    results:        state.quiz.results,
+    isFinish:       state.quiz.isFinish,
+    activeQuestion: state.quiz.activeQuestion,
+    answerState:    state.quiz.answerState,
+    quiz:           state.quiz.quiz,
+    loading:        state.quiz.loading,
+  }
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    fetchQuizById: id => dispatch(fetchQuizById(id))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Quiz);
