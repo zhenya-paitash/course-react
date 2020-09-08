@@ -4,14 +4,8 @@ import './Drawer.css';
 import Backdrop from "../../UI/Backdrop";
 
 
-const links = [
-  {to: '/', label: 'List', exact: true},
-  {to: '/auth', label: 'Authorization', exact: false},
-  {to: '/quiz-creator', label: 'Create Quiz', exact: false},
-];
-
 export default class Drawer extends Component {
-  renderLinks() {
+  renderLinks(links) {
     return links.map((i, idx) => {
       return (
         <li key={idx}>
@@ -26,11 +20,22 @@ export default class Drawer extends Component {
     const cls = ['Drawer'];
     if (!this.props.isOpen) cls.push('close');
 
+    const links = [
+      {to: '/', label: 'List', exact: true}
+    ];
+
+    if (this.props.isAuthenticated) {
+      links.push({to: '/quiz-creator', label: 'Create Quiz', exact: false});
+      links.push({to: '/logout', label: 'Logout', exact: false});
+    } else {
+      links.push({to: '/auth', label: 'Authorization', exact: false});
+    }
+
     return (
       <React.Fragment>
         <nav className={cls.join(' ')}>
           <ul>
-            { this.renderLinks() }
+            { this.renderLinks(links) }
           </ul>
         </nav>
         { this.props.isOpen ? <Backdrop onClick={this.props.onClose} /> : null}
