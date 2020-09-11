@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export const About = props => {
+export const About = () => {
   return (
     <div className="jumbotron jumbotron-fluid">
       <div className="container">
