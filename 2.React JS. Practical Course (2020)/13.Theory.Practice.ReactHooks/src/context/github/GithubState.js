@@ -17,7 +17,7 @@ const withCreds = url => {
 export const GithubState = ({children}) => {
   const initialState = {
     user: {},
-    users: {},
+    users: [],
     loading: false,
     repos: []
   };
