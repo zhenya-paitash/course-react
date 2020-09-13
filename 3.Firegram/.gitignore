@@ -28,6 +28,3 @@ yarn-error.log*
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
-
-# firebase config
-!/src/firebase/config.js
