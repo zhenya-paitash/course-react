@@ -5,7 +5,7 @@
 
 - 1 -  ~~``React + Redux - Professional Development (2020) / udemy / Yuri Bura.``~~ *[ 56/100%] postponed*
 - 2 - ``React JS. Practical Course (2020) / udemy / Vladilen Minin.``
-- 3 - ``Firegram / youtube / Brad Traversy`` <a href="https://www.youtube.com/watch?v=vUe91uOx7R0"> → </a>
+- 3 - ``Firegram / youtube / Traversy Media`` <a href="https://www.youtube.com/watch?v=vUe91uOx7R0"> → </a>
 
 ##### Test versions:
 
