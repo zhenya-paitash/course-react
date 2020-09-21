@@ -22,7 +22,6 @@ const Register = ({ setAlert, register }) => {
     if (password !== password2) {
       setAlert('Passwords do not mutch', 'danger');
     } else {
-      console.log({ name, email, password });
       register({ name, email, password });
     }
   };

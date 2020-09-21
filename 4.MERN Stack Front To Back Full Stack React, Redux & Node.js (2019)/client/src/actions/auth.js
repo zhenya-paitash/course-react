@@ -6,12 +6,16 @@ import { REGISTER_SUCCESS, REGISTER_FAIL } from './types'
 // Register User
 export const register = ({ name, email, password }) => async dispatch => {
   const config = {
+    baseURL: 'http://localhost:5000',
     heders: {
-      'Content-Type': 'application/json'
+      // 'user-agent': 'node.js',
+      'Content-Type': 'application/json',
+      // 'Access-Control-Allow-Origin': '*'
     }
   }
 
-  const body = JSON.stringify({ name, email, password })
+  // const body = JSON.stringify({ name, email, password });
+  const body = { name, email, password };
 
   try {
 
