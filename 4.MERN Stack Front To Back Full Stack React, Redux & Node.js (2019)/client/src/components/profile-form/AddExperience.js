@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
-// import { Link, withRouter } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addExperience } from '../../actions/profile';
@@ -33,6 +32,7 @@ const AddExperience = ({ addExperience, history }) => {
       <small>* = required field</small>
       <form className='form' onSubmit={e => {
         e.preventDefault();
+        console.log(formData)
         addExperience(formData, history);
       }}>
         <div className='form-group'>
@@ -60,17 +60,19 @@ const AddExperience = ({ addExperience, history }) => {
             value={location}
             onChange={(e) => onChange(e)}
             type='text'
-            placeholder='Location'
+            placeholder='* Location'
             name='location'
+            required
           />
         </div>
         <div className='form-group'>
-          <h4>From Date</h4>
+          <h4>* From Date</h4>
           <input
             value={from}
             onChange={(e) => onChange(e)}
             type='date'
             name='from'
+            required
           />
         </div>
         <div className='form-group'>
@@ -121,5 +123,4 @@ AddExperience.propTypes = {
   addExperience: PropTypes.func.isRequired,
 };
 
-// export default connect(null, { addExperience })(withRouter(AddExperience));
-export default connect(null, { addExperience })(AddExperience);
+export default connect(null, { addExperience })(withRouter(AddExperience));

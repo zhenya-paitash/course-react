@@ -43,11 +43,12 @@ const EditProfile = ({
       youtube:        loading || !profile.social          ? '' : profile.social.youtube,
       instagram:      loading || !profile.social          ? '' : profile.social.instagram
     });
-  // }, [loading]);
+  // eslint-disable-next-line
   }, [
     loading,
     getCurrentProfile,
-    profile,
+    // при изменении profile => идет подгрузка данных из сервера, и не даёт изменить значение. Ворнинг оставить
+    // profile,
   ]);
 
   const {
@@ -75,7 +76,7 @@ const EditProfile = ({
 
   return (
     <Fragment>
-      <h1 className='large text-primary'>Create Your Profile</h1>
+      <h1 className='large text-primary'>Edit Your Profile</h1>
       <p className='lead'>
         <i className='fas fa-user'></i> Let's get some information to make your
         profile stand out

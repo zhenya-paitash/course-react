@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-// import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -71,17 +71,19 @@ const AddEducation = ({ addEducation, history }) => {
             value={fieldofstudy}
             onChange={(e) => onChange(e)}
             type='text'
-            placeholder='Field of Study'
+            placeholder='* Field of Study'
             name='fieldofstudy'
+            required
           />
         </div>
         <div className='form-group'>
-          <h4>From Date</h4>
+          <h4>* From Date</h4>
           <input
             value={from}
             onChange={(e) => onChange(e)}
             type='date'
             name='from'
+            required
           />
         </div>
         <div className='form-group'>
@@ -132,5 +134,4 @@ AddEducation.propTypes = {
   addEducation: PropTypes.func.isRequired,
 };
 
-// export default connect(null, { addEducation })(withRouter(AddEducation));
-export default connect(null, { addEducation })(AddEducation);
+export default connect(null, { addEducation })(withRouter(AddEducation));
