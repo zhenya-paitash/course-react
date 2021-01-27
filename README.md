@@ -7,6 +7,7 @@
 - 2 - ``React JS. Practical Course (2020) / udemy / Vladilen Minin.``
 - 3 - ``Firegram / youtube / Traversy Media`` <a href="https://www.youtube.com/watch?v=vUe91uOx7R0"> → </a>
 - 4 - ``MERN Stack Front To Back: Full Stack React, Redux & Node.js (2019) / udemy / Brad Traversy.``
+- 5 - ``MERN eCommerce From Scratch (2020) / udemy / Brad Traversy.``
 
 ##### Test versions:
 
