@@ -1,11 +1,14 @@
 {
-  "name": "mern",
+  "name": "proshop",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "MERN shopping cart app",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node backend/server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "zhenya-paitash",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
