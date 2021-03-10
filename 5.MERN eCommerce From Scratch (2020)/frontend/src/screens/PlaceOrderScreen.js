@@ -78,7 +78,7 @@ const PlaceOrderScreen = ({ history }) => {
               ) : (
                 <ListGroup varian='flush'>
                   {cart.cartItems.map((i, idx) => (
-                    <ListGroup.Item ket={idx}>
+                    <ListGroup.Item key={idx}>
                       <Row>
                         <Col md={1}>
                           <Image src={i.image} alt={i.name} fluid rounded />
