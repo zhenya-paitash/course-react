@@ -14,7 +14,10 @@ const app = express()
 app.use(express.json())
 
 app.use((req, res, next) => {
-  console.log(req.originalUrl)
+  console.log(
+    req.method.gray.bold + ' '.repeat(6 - req.method.length),
+    req.originalUrl
+  )
   next()
 })
 
