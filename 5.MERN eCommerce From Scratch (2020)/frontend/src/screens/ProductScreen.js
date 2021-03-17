@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { lisetProductDetails } from '../actions/productActions'
+import { listProductDetails } from '../actions/productActions'
 import { Link } from 'react-router-dom'
 import { Row, Col, Image, ListGroup, Card, Button, Form } from 'react-bootstrap'
 import Rating from '../components/Rating'
@@ -17,7 +17,7 @@ const ProductScreen = ({ match, history }) => {
   )
 
   useEffect(() => {
-    dispatch(lisetProductDetails(match.params.id))
+    dispatch(listProductDetails(match.params.id))
   }, [match, dispatch])
 
   const addToCartHandler = () => {
