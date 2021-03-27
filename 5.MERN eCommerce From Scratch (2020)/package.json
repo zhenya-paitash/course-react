@@ -11,7 +11,8 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "data:import": "node backend/seeder",
     "data:destroy": "node backend/seeder -d",
-    "gen:secret": "node backend/genSecret.js"
+    "gen:secret": "node backend/genSecret.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "zhenya-paitash",
   "license": "ISC",
