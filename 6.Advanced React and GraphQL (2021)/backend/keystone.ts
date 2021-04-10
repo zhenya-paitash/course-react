@@ -1,4 +1,5 @@
 import { config, createSchema } from '@keystone-next/keystone/schema'
+import { User } from './schemas/User'
 import 'dotenv/config'
 
 const databaseURL = process.env.DATABASE_URL || 'mongodb://localhost/keystone-sickfits'
@@ -23,6 +24,7 @@ export default config({
   },
   lists: createSchema({
     // ? Schema items go in here
+    User,
   }),
   ui: {
     // ! TODO: change this for roles
