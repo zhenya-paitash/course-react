@@ -3,9 +3,10 @@ Advanced-React
 
 # vscode
 .vscode
-
 # next.js
 .next
+# keystone
+.keystone
 
 # dependencies
 /node_modules
