@@ -1,21 +1,28 @@
-import { integer, select, text } from "@keystone-next/fields";
+import { integer, relationship, select, text } from "@keystone-next/fields";
 import { list } from "@keystone-next/keystone/schema";
 
 export const Product = list({
-  // ! TODO: access
-  // access:
   fields: {
     name: text({ isRequired: true }),
     description: text({
       ui: {
         displayMode: 'textarea',
-      }
+      },
+    }),
+    photo: relationship({
+      ref: 'ProductImage.product',
+      ui: {
+        displayMode: 'cards',
+        cardFields: ['image', 'altText'],
+        inlineCreate: { fields: ['image', 'altText'] },
+        inlineEdit: { fields: ['image', 'altText'] },
+      },
     }),
     status: select({
       options: [
         { label: 'Draft', value: 'DRAFT' },
-        { label: 'Avilable', value: 'AVILABLE' },
-        { label: 'Unavilable', value: 'UNAVILABLE' },
+        { label: 'Available', value: 'AVAILABLE' },
+        { label: 'Unavailable', value: 'UNAVAILABLE' },
       ],
       defaultValue: 'DRAFT',
       ui: {
@@ -24,7 +31,11 @@ export const Product = list({
       },
     }),
     price: integer(),
-    // ! TODO: Photo
-    // photo: 
-  }
+    // user: relationship({
+    //   ref: 'User.products',
+    //   defaultValue: ({ context }) => ({
+    //     connect: { id: context.session.itemId },
+    //   }),
+    // }),
+  },
 })
