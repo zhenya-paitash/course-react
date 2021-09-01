@@ -4,11 +4,11 @@
 
 - 1 -  ~~``React + Redux - Professional Development (2020) / udemy / Yuri Bura.``~~ *[ 56/100%] postponed*
 - 2 - ``React JS. Practical Course (2020) / udemy / Vladilen Minin.``
-- 3 - ``Firegram / youtube / Traversy Media`` <a href="https://www.youtube.com/watch?v=vUe91uOx7R0"> → </a>
+- 3 - ``Firegram / ``<a href="https://youtu.be/vUe91uOx7R0">youtube</a>`` / Traversy Media``
 - 4 - ``MERN Stack Front To Back: Full Stack React, Redux & Node.js (2019) / udemy / Brad Traversy.``
 - 5 - ``MERN eCommerce From Scratch (2020) / udemy / Brad Traversy.``
 - 6 - <a href="https://github.com/zhenya-paitash/course_nextjs/tree/master/2.Advanced%20React%20and%20GraphQL%20(2021)">``Advanced React & GraphQL (2021) / advancedreact / Wes Bos.``</a> ***MOVED to*** <a href="https://github.com/zhenya-paitash/course_nextjs">course_nodejs</a>
-- 7 - ``React Testing Crash Course (2021) / youtube / Traversy Media`` <a href="https://youtu.be/OVNjsIto9xM"> → </a>
+- 7 - ``React Testing Crash Course (2021) / ``<a href="https://youtu.be/OVNjsIto9xM">youtube</a>`` / Traversy Media`` 
 
 ##### Test versions:
 
