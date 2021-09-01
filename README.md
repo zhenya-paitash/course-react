@@ -1,4 +1,3 @@
-
 ## React Course
 
 ##### Courses:
@@ -9,6 +8,7 @@
 - 4 - ``MERN Stack Front To Back: Full Stack React, Redux & Node.js (2019) / udemy / Brad Traversy.``
 - 5 - ``MERN eCommerce From Scratch (2020) / udemy / Brad Traversy.``
 - 6 - <a href="https://github.com/zhenya-paitash/course_nextjs/tree/master/2.Advanced%20React%20and%20GraphQL%20(2021)">``Advanced React & GraphQL (2021) / advancedreact / Wes Bos.``</a> ***MOVED to*** <a href="https://github.com/zhenya-paitash/course_nextjs">course_nodejs</a>
+- 7 - ``React Testing Crash Course (2021) / youtube / Traversy Media`` <a href="https://youtu.be/OVNjsIto9xM"> → </a>
 
 ##### Test versions:
 
