@@ -1,6 +1,7 @@
 const route = require("express").Router()
 const User = require("../models/User")
 const CryptoJS = require("crypto-js")
+const jwt = require("jsonwebtoken")
 
 // @route   POST api/auth/register
 // @desc    Create new User
@@ -27,18 +28,22 @@ route.post("/register", async (req, res) => {
 // @access  Public
 route.get("/login", async (req, res) => {
   try {
-    const { email, password } = req.body
-    const user = await User.findOne({ email })
+    const user = await User.findOne({ email: req.body.email })
     if (!user) return res.status(401).json("Wrong password or username! 😪")
 
+    const { _id: id, password, isAdmin } = user
+    const KEY = process.env.SECRET_KEY
+
     // check password
-    const bytes = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY)
+    const bytes = CryptoJS.AES.decrypt(password, KEY)
     const originalPassword = bytes.toString(CryptoJS.enc.Utf8)
-    if (originalPassword !== password)
+    if (originalPassword !== req.body.password)
       return res.status(401).json("Wrong password or username! 😪")
 
+    const accessToken = jwt.sign({ id, isAdmin }, KEY, { expiresIn: "5d" })
+
     const { password: _, ...info } = user._doc
-    res.status(200).json(info)
+    res.status(200).json({ ...info, accessToken })
   } catch (err) {
     res.status(500).json(err)
   }
