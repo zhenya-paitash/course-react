@@ -1,0 +1,11 @@
+{
+  "name": "netflix_app",
+  "version": "1.0.0",
+  "description": "Netflix app MERN Stack (2021). LINK: https://youtu.be/tsNswx0nRKM",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "zhenya-paitash",
+  "license": "ISC"
+}
