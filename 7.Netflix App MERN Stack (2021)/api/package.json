@@ -4,8 +4,16 @@
   "description": "Netflix app MERN Stack (2021). LINK: https://youtu.be/tsNswx0nRKM",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "author": "zhenya-paitash",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^14.2.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.7",
+    "nodemon": "^2.0.15"
+  }
 }
