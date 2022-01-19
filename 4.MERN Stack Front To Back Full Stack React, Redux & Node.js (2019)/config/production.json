@@ -1,6 +1,0 @@
-{
-  "mongoURI": "mongodb+srv://mernadmin:mern333513559@devconnector.n32om.mongodb.net/MERN-Course?retryWrites=true&w=majority",
-  "jwtSecret": "791d233285914b518cc5c11c448fe715005ff3ab6ebe68ce6d38acc3fb14e3d8e38dcb3209cc8e224b313edc449ccd37c6dac57fe1f48d3f65ebe7149f2c61c8",
-  "githubClientId": "1dba06ef2307ff348b1b",
-  "githubClientSecret": "f09d173311a5c65b8d8b7a150ccdf7cfc77ad530"
-}
