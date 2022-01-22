@@ -7,7 +7,7 @@
   z-index: 999;
   background: linear-gradient(to top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
 
-  &.scrolled {
+  &.scrolled{
     background-color: var(--main-color);
   }
 
@@ -58,8 +58,8 @@
         }
 
         span {
-          cursor: pointer;
           padding: 10px;
+          cursor: pointer;
         }
 
         &:hover {
