@@ -24,7 +24,7 @@ app.use(express.json())
 app.use("/api/auth", authRoute)
 
 // SERVER
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => {
-  console.log("Backend server is running!")
-})
+app.listen(
+  process.env.PORT || 5000, 
+  () => console.log("Backend server is running!")
+)
