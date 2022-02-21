@@ -6,6 +6,7 @@ const dotenv = require("dotenv")
 const authRoute = require("./routes/auth")
 const userRoute = require("./routes/users")
 const movieRoute = require("./routes/movies")
+const listRoute = require("./routes/lists")
 
 // CONFIG
 dotenv.config()
@@ -26,7 +27,8 @@ app.use(express.json())
 app.use("/api/auth", authRoute)
 app.use("/api/users", userRoute)
 app.use("/api/movies", movieRoute)
-app.use((req, res) => res.status(200).json("Server is running! 🟢"))
+app.use("/api/lists", listRoute)
+app.use((req, res) => res.status(200).json(req.path))
 
 // SERVER
 const PORT = process.env.PORT || 5000
