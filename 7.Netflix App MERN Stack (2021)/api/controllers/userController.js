@@ -1,17 +1,12 @@
-const router = require("express").Router()
 const User = require("../models/User")
 const CryptoJS = require("crypto-js")
-const verify = require("../verifyToken")
 
-// @route   GET api/user/find
 // @desc    Get ALL Users
+// @route   GET api/user/find
 // @access  Private
-router.get("/", verify, async (req, res) => {
-  const query = req.query.new
-  if (!req.user.isAdmin)
-    return res.status(403).json("You are not allowed to see all users! 🛡️")
-
+const getAll = async (req, res) => {
   try {
+    const query = req.query.new
     const users = query
       ? await User.find().sort({ _id: -1 }).limit(10)
       : await User.find()
@@ -19,12 +14,12 @@ router.get("/", verify, async (req, res) => {
   } catch (err) {
     res.status(500).json(err.message)
   }
-})
+}
 
-// @route   GET api/user/find/:id
 // @desc    Get user by ID
+// @route   GET api/user/find/:id
 // @access  Public
-router.get("/find/:id", async (req, res) => {
+const getById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const { password, ...info } = user._doc
@@ -32,12 +27,12 @@ router.get("/find/:id", async (req, res) => {
   } catch (err) {
     res.status(500).json(err.message)
   }
-})
+}
 
-// @route   GET api/user/
 // @desc    Get User Stats
+// @route   GET api/user/
 // @access  Public
-router.get("/stats", async (req, res) => {
+const getStats = async (req, res) => {
   // const today = new Date()
   // const lastYear = today.setFullYear(today.setFullYear - 1)
   // const monthsArr = [
@@ -73,12 +68,12 @@ router.get("/stats", async (req, res) => {
   } catch (err) {
     res.status(500).json(err.message)
   }
-})
+}
 
-// @route   PUT api/user/:id
 // @desc    Update User information
+// @route   PUT api/user/:id
 // @access  Private
-router.put("/:id", verify, async (req, res) => {
+const updateUser = async (req, res) => {
   if (req.user.id === req.params.id || req.user.isAdmin) {
     if (req.body.password) {
       req.body.password = CryptoJS.AES.encrypt(
@@ -100,24 +95,27 @@ router.put("/:id", verify, async (req, res) => {
   } else {
     res.status(403).json("You can update only your account! 🤐")
   }
-})
+}
 
-// @route   DELETE api/user/:id
 // @desc    Delete User
+// @route   DELETE api/user/:id
 // @access  Private
-router.delete("/:id", verify, async (req, res) => {
+const deleteUser = async (req, res) => {
   if (req.user.id !== req.params.id && !req.user.isAdmin)
     return res.status(403).json("You can delete only your account! 🤐")
-  // if (req.user.id === req.params.id || req.user.isAdmin) {
+
   try {
     await User.findByIdAndDelete(req.params.id)
     res.status(200).json("User has been deleted! ⚠️")
   } catch (err) {
     res.status(500).json(err)
   }
-  // } else {
-  //   res.status(403).json("You can delete only your account! 🤐")
-  // }
-})
+}
 
-module.exports = router
+module.exports = {
+  getAll,
+  getById,
+  getStats,
+  updateUser,
+  deleteUser
+}

@@ -1,34 +1,25 @@
 // EXPORTS
 const express = require("express")
 const app = express()
-const mongoose = require("mongoose")
 const dotenv = require("dotenv")
-const authRoute = require("./routes/auth")
-const userRoute = require("./routes/users")
-const movieRoute = require("./routes/movies")
-const listRoute = require("./routes/lists")
+const database = require("./config/database")
+const authRoutes = require("./routes/authRoutes")
+const userRoutes = require("./routes/userRoutes")
+// const movieRoutes = require("./routes/movies")
+const listRoutes = require("./routes/listRoutes")
+const error404 = require("./middleware/errorMiddleware")
 
-// CONFIG
+// CONFIG && DATABASE
 dotenv.config()
-
-// DATABASE
-mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    // useCreateIndex: true,
-  })
-  .then(() => console.log("DB Connection Sucessfull!"))
-  .catch(err => console.error(err))
-
+database.connect()
 app.use(express.json())
 
 // ROUTES
-app.use("/api/auth", authRoute)
-app.use("/api/users", userRoute)
-app.use("/api/movies", movieRoute)
-app.use("/api/lists", listRoute)
-app.use((req, res) => res.status(200).json(req.path))
+app.use("/api/auth", authRoutes)
+app.use("/api/users", userRoutes)
+// app.use("/api/movies", movieRoutes)
+app.use("/api/lists", listRoutes)
+app.use(error404)
 
 // SERVER
 const PORT = process.env.PORT || 5000

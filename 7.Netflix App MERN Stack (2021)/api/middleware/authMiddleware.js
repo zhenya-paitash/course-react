@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken")
 
 function verify(req, res, next) {
   const authHeader = req.headers.authorization
-  // const authHeader = req.headers.token
   if (authHeader) {
     const token = authHeader.split` `[1]
 
@@ -16,4 +15,9 @@ function verify(req, res, next) {
   }
 }
 
-module.exports = verify
+function isAdmin(req, res, next) {
+  if (!req.user.isAdmin) return res.status(403).json("You are not allowed! 🛡️")
+  next()
+}
+
+module.exports = { verify, isAdmin }

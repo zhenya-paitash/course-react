@@ -1,11 +1,10 @@
 const router = require("express").Router()
 const List = require("../models/List")
-const verify = require("../verifyToken")
 
+// @desc    Get list
 // @route   GET api/lists
-// @desc    Delete list
 // @access  Private
-router.get("/", verify, async (req, res) => {
+const getAllLists = async (req, res) => {
   const { type, genre } = req.query
   let list = []
 
@@ -41,16 +40,12 @@ router.get("/", verify, async (req, res) => {
   } catch (err) {
     res.status(500).json(err.message)
   }
-})
+}
 
-// @route   POST api/lists
 // @desc    Create new list
+// @route   POST api/lists
 // @access  Private
-router.post("/", verify, async (req, res) => {
-  if (!req.user.isAdmin) {
-    return res.status(403).json("You are not allowed! 🛡️")
-  }
-
+const createList = async (req, res) => {
   try {
     const newList = new List(req.body)
     const savedList = await newList.save()
@@ -58,22 +53,22 @@ router.post("/", verify, async (req, res) => {
   } catch (err) {
     res.status(500).json(err.message)
   }
-})
+}
 
-// @route   DELETE api/lists/:id
 // @desc    Delete list
+// @route   DELETE api/lists/:id
 // @access  Private
-router.delete("/:id", verify, async (req, res) => {
-  if (!req.user.isAdmin) {
-    return res.status(403).json("You are not allowed! 🛡️")
-  }
-
+const deleteList = async (req, res) => {
   try {
     await List.findByIdAndDelete(req.params.id)
     res.status(201).json("The list has been deleted! ⚠️")
   } catch (err) {
     res.status(500).json(err.message)
   }
-})
+}
 
-module.exports = router
+module.exports = {
+  getAllLists,
+  createList,
+  deleteList,
+}

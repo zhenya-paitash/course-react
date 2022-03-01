@@ -1,14 +1,12 @@
-const route = require("express").Router()
 const User = require("../models/User")
 const CryptoJS = require("crypto-js")
 const jwt = require("jsonwebtoken")
 
-// @route   POST api/auth/register
 // @desc    Create new User
+// @route   POST api/auth/register
 // @access  Public
-route.post("/register", async (req, res) => {
+const register = async (req, res) => {
   const { username, email, password } = req.body
-
   const newUser = new User({
     username,
     email,
@@ -21,12 +19,12 @@ route.post("/register", async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-})
+}
 
-// @route   GET api/auth/login
 // @desc    Login
+// @route   GET api/auth/login
 // @access  Public
-route.get("/login", async (req, res) => {
+const login = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email })
     if (!user) return res.status(401).json("Wrong password or username! 😪")
@@ -47,6 +45,9 @@ route.get("/login", async (req, res) => {
   } catch (err) {
     res.status(500).json(err)
   }
-})
+}
 
-module.exports = route
+module.exports = {
+  register,
+  login,
+}
