@@ -1,13 +1,14 @@
-const router = require("express").Router()
-const {
+import { Router } from "express"
+import {
   getMovies,
   updateMovie,
   deleteMovie,
   createMovie,
   getMovieById,
   getMovieRandom,
-} = require("../controllers/movieController")
-const { verify, isAdmin } = require("../middleware/authMiddleware")
+} from "../controllers/movieController.js"
+import { verify, isAdmin } from "../middleware/authMiddleware.js"
+const router = Router()
 
 router
   .route("/")
@@ -20,4 +21,4 @@ router
   .put(verify, isAdmin, updateMovie)
   .delete(verify, isAdmin, deleteMovie)
 
-module.exports = router
+export default router

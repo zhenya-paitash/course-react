@@ -1,12 +1,13 @@
-const router = require("express").Router()
-const {
+import { Router } from "express"
+import {
   getUsers,
   getUserById,
   getUsersStats,
   updateUser,
   deleteUser,
-} = require("../controllers/userController")
-const { verify, isAdmin } = require("../middleware/authMiddleware")
+} from "../controllers/userController.js"
+import { verify, isAdmin } from "../middleware/authMiddleware.js"
+const router = Router()
 
 router.route("/").get(verify, isAdmin, getUsers)
 router.route("/stats").get(getUsersStats)
@@ -16,4 +17,4 @@ router
   .put(verify, updateUser)
   .delete(verify, deleteUser)
 
-module.exports = router
+export default router

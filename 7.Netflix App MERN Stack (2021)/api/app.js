@@ -1,16 +1,16 @@
 // EXPORTS
-const express = require("express")
+import express from "express"
+import { config } from "dotenv"
+import database from "./config/database.js"
+import authRoutes from "./routes/authRoutes.js"
+import userRoutes from "./routes/userRoutes.js"
+import movieRoutes from "./routes/movieRoutes.js"
+import listRoutes from "./routes/listRoutes.js"
+import error404 from "./middleware/errorMiddleware.js"
 const app = express()
-const dotenv = require("dotenv")
-const database = require("./config/database")
-const authRoutes = require("./routes/authRoutes")
-const userRoutes = require("./routes/userRoutes")
-const movieRoutes = require("./routes/movieRoutes")
-const listRoutes = require("./routes/listRoutes")
-const error404 = require("./middleware/errorMiddleware")
 
 // CONFIG && DATABASE
-dotenv.config()
+config()
 database.connect()
 app.use(express.json())
 

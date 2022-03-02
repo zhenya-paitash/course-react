@@ -1,6 +1,6 @@
-const User = require("../models/User")
-const CryptoJS = require("crypto-js")
-const jwt = require("jsonwebtoken")
+import User from "../models/User.js"
+import CryptoJS from "crypto-js"
+import jwt from "jsonwebtoken"
 
 // @desc    Login
 // @route   GET api/auth
@@ -47,7 +47,4 @@ const registerUser = async (req, res) => {
   }
 }
 
-module.exports = {
-  loginUser,
-  registerUser,
-}
+export { loginUser, registerUser }

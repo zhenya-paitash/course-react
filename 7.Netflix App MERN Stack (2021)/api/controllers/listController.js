@@ -1,4 +1,4 @@
-const List = require("../models/List")
+import List from "../models/List.js"
 
 // @desc    Get list
 // @route   GET api/list
@@ -66,8 +66,4 @@ const deleteList = async (req, res) => {
   }
 }
 
-module.exports = {
-  getLists,
-  createList,
-  deleteList,
-}
+export { getLists, createList, deleteList }

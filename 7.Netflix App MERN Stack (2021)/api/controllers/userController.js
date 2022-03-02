@@ -1,5 +1,5 @@
-const User = require("../models/User")
-const CryptoJS = require("crypto-js")
+import User from "../models/User.js"
+import CryptoJS from "crypto-js"
 
 // @desc    Get ALL Users
 // @route   GET api/user
@@ -112,7 +112,7 @@ const deleteUser = async (req, res) => {
   }
 }
 
-module.exports = {
+export {
   getUsers,
   getUserById,
   getUsersStats,

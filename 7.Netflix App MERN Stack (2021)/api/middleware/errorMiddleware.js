@@ -13,5 +13,5 @@
 
 // module.exports = { notFound, errorHandler }
 
-module.exports = (req, res) =>
+export default (req, res) =>
   res.status(404).json(`Page: ${req.originalUrl} not found! 🔴`)

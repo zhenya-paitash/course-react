@@ -1,4 +1,4 @@
-const Movie = require("../models/Movie")
+import Movie from "../models/Movie.js"
 
 // @desc    Get all movies
 // @route   GET api/movie
@@ -81,7 +81,7 @@ const deleteMovie = async (req, res) => {
   }
 }
 
-module.exports = {
+export {
   getMovies,
   getMovieById,
   getMovieRandom,
