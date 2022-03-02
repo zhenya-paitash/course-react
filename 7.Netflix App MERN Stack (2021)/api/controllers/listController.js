@@ -1,10 +1,9 @@
-const router = require("express").Router()
 const List = require("../models/List")
 
 // @desc    Get list
-// @route   GET api/lists
+// @route   GET api/list
 // @access  Private
-const getAllLists = async (req, res) => {
+const getLists = async (req, res) => {
   const { type, genre } = req.query
   let list = []
 
@@ -43,7 +42,7 @@ const getAllLists = async (req, res) => {
 }
 
 // @desc    Create new list
-// @route   POST api/lists
+// @route   POST api/list
 // @access  Private
 const createList = async (req, res) => {
   try {
@@ -56,7 +55,7 @@ const createList = async (req, res) => {
 }
 
 // @desc    Delete list
-// @route   DELETE api/lists/:id
+// @route   DELETE api/list/:id
 // @access  Private
 const deleteList = async (req, res) => {
   try {
@@ -68,7 +67,7 @@ const deleteList = async (req, res) => {
 }
 
 module.exports = {
-  getAllLists,
+  getLists,
   createList,
   deleteList,
 }

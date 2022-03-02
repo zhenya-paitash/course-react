@@ -2,9 +2,9 @@ const User = require("../models/User")
 const CryptoJS = require("crypto-js")
 
 // @desc    Get ALL Users
-// @route   GET api/user/find
+// @route   GET api/user
 // @access  Private
-const getAll = async (req, res) => {
+const getUsers = async (req, res) => {
   try {
     const query = req.query.new
     const users = query
@@ -17,9 +17,9 @@ const getAll = async (req, res) => {
 }
 
 // @desc    Get user by ID
-// @route   GET api/user/find/:id
+// @route   GET api/user/:id
 // @access  Public
-const getById = async (req, res) => {
+const getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id)
     const { password, ...info } = user._doc
@@ -30,9 +30,9 @@ const getById = async (req, res) => {
 }
 
 // @desc    Get User Stats
-// @route   GET api/user/
+// @route   GET api/user/stats
 // @access  Public
-const getStats = async (req, res) => {
+const getUsersStats = async (req, res) => {
   // const today = new Date()
   // const lastYear = today.setFullYear(today.setFullYear - 1)
   // const monthsArr = [
@@ -113,9 +113,9 @@ const deleteUser = async (req, res) => {
 }
 
 module.exports = {
-  getAll,
-  getById,
-  getStats,
+  getUsers,
+  getUserById,
+  getUsersStats,
   updateUser,
-  deleteUser
+  deleteUser,
 }

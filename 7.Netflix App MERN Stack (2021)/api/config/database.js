@@ -8,7 +8,7 @@ const database = {
         useUnifiedTopology: true,
         // useCreateIndex: true,
       })
-      .then(() => console.log("Database Connection Sucessfull! 🟢"))
+      .then(() => console.log("database: ✔️"))
       .catch(err => console.error(err))
   },
 }

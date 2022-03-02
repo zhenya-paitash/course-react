@@ -5,7 +5,7 @@ const dotenv = require("dotenv")
 const database = require("./config/database")
 const authRoutes = require("./routes/authRoutes")
 const userRoutes = require("./routes/userRoutes")
-// const movieRoutes = require("./routes/movies")
+const movieRoutes = require("./routes/movieRoutes")
 const listRoutes = require("./routes/listRoutes")
 const error404 = require("./middleware/errorMiddleware")
 
@@ -16,11 +16,11 @@ app.use(express.json())
 
 // ROUTES
 app.use("/api/auth", authRoutes)
-app.use("/api/users", userRoutes)
-// app.use("/api/movies", movieRoutes)
-app.use("/api/lists", listRoutes)
+app.use("/api/user", userRoutes)
+app.use("/api/movie", movieRoutes)
+app.use("/api/list", listRoutes)
 app.use(error404)
 
 // SERVER
 const PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log(`Backend server is running on port ${PORT}`))
+app.listen(PORT, () => console.log("server  : ✔️"))

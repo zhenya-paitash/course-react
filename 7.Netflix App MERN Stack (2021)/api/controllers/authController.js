@@ -2,29 +2,10 @@ const User = require("../models/User")
 const CryptoJS = require("crypto-js")
 const jwt = require("jsonwebtoken")
 
-// @desc    Create new User
-// @route   POST api/auth/register
-// @access  Public
-const register = async (req, res) => {
-  const { username, email, password } = req.body
-  const newUser = new User({
-    username,
-    email,
-    password: CryptoJS.AES.encrypt(password, process.env.SECRET_KEY).toString(),
-  })
-
-  try {
-    const user = await newUser.save()
-    res.status(201).json(user)
-  } catch (err) {
-    res.status(500).json(err)
-  }
-}
-
 // @desc    Login
-// @route   GET api/auth/login
+// @route   GET api/auth
 // @access  Public
-const login = async (req, res) => {
+const loginUser = async (req, res) => {
   try {
     const user = await User.findOne({ email: req.body.email })
     if (!user) return res.status(401).json("Wrong password or username! 😪")
@@ -47,7 +28,26 @@ const login = async (req, res) => {
   }
 }
 
+// @desc    Create new User
+// @route   POST api/auth
+// @access  Public
+const registerUser = async (req, res) => {
+  const { username, email, password } = req.body
+  const newUser = new User({
+    username,
+    email,
+    password: CryptoJS.AES.encrypt(password, process.env.SECRET_KEY).toString(),
+  })
+
+  try {
+    const user = await newUser.save()
+    res.status(201).json(user)
+  } catch (err) {
+    res.status(500).json(err)
+  }
+}
+
 module.exports = {
-  register,
-  login,
+  loginUser,
+  registerUser,
 }
