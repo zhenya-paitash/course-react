@@ -1,17 +1,19 @@
-// const notFound = (req, res, next) => {
-//   res.status(404)
-//   next(new Error(`Page: ${req.originalUrl} Not Found! 🔴`))
-// }
+// export default (req, res) =>
+// res.status(404).json(`Page: ${req.originalUrl} not found! 🔴`)
 
-// const errorHandler = (err, req, res, next) => {
-//   const status = res.statusCode === 200 ? 500 : res.statusCode
-//   res.status(status).json({
-//     message: err.message,
-//     stack: process.env.NODE_ENV === "production" ? null : err.stack,
-//   })
-// }
+const err404 = (req, res, next) => {
+  const error = new Error("Not Found: " + req.originalUrl)
+  console.log("error 404")
+  res.status(404)
+  next(error)
+}
 
-// module.exports = { notFound, errorHandler }
+const errHandler = (err, req, res, next) => {
+  const code = res.statusCode === 200 ? 500 : res.statusCode
+  res.status(code).json({
+    message: err.message,
+    stack: process.env.NODE_ENV === "production" ? null : err.stack,
+  })
+}
 
-export default (req, res) =>
-  res.status(404).json(`Page: ${req.originalUrl} not found! 🔴`)
+export { err404, errHandler }

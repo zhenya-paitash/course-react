@@ -1,7 +1,7 @@
 import mongoose from "mongoose"
 
 const database = {
-  connect() {
+  async connect() {
     mongoose
       .connect(process.env.MONGO_URL, {
         useNewUrlParser: true,
@@ -9,7 +9,7 @@ const database = {
         // useCreateIndex: true,
       })
       .then(() => console.log("database: ✔️"))
-      .catch(err => console.error(err))
+      .catch(err => console.error("database: ❌\ndb error: " + err.message))
   },
 }
 

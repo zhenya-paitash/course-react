@@ -1,50 +1,42 @@
 import User from "../models/User.js"
-import CryptoJS from "crypto-js"
 import jwt from "jsonwebtoken"
+import asyncHandler from "express-async-handler"
 
-// @desc    Login
+// @desc    Login user
 // @route   GET api/auth
 // @access  Public
-const loginUser = async (req, res) => {
-  try {
-    const user = await User.findOne({ email: req.body.email })
-    if (!user) return res.status(401).json("Wrong password or username! 😪")
-
-    const { _id: id, password, isAdmin } = user
-    const KEY = process.env.SECRET_KEY
-
-    // check password
-    const bytes = CryptoJS.AES.decrypt(password, KEY)
-    const originalPassword = bytes.toString(CryptoJS.enc.Utf8)
-    if (originalPassword !== req.body.password)
-      return res.status(401).json("Wrong password or username! 😪")
-
-    const accessToken = jwt.sign({ id, isAdmin }, KEY, { expiresIn: "5d" })
-
+const loginUser = asyncHandler(async (req, res) => {
+  const { password, email } = req.body
+  const user = await User.findOne({ email })
+  if (user && (await user.checkPassword(user, password))) {
+    const accessToken = jwt.sign(
+      {
+        id: user._id,
+        isAdmin: user.isAdmin,
+      },
+      process.env.SECRET_KEY,
+      { expiresIn: "1d" }
+    )
     const { password: _, ...info } = user._doc
     res.status(200).json({ ...info, accessToken })
-  } catch (err) {
-    res.status(500).json(err)
+  } else {
+    res.status(401)
+    throw new Error("Wrong password or username! 😪")
   }
-}
+})
 
 // @desc    Create new User
 // @route   POST api/auth
 // @access  Public
-const registerUser = async (req, res) => {
+const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body
-  const newUser = new User({
-    username,
-    email,
-    password: CryptoJS.AES.encrypt(password, process.env.SECRET_KEY).toString(),
-  })
-
   try {
-    const user = await newUser.save()
+    const user = await User.create({ username, email, password })
     res.status(201).json(user)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500)
+    throw new Error(err)
   }
-}
+})
 
 export { loginUser, registerUser }

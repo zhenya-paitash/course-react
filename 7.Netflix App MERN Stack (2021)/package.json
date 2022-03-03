@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Netflix app MERN Stack (2021). LINK: https://youtu.be/tsNswx0nRKM",
   "main": "app.js",
+  "type": "module",
   "scripts": {
     "start": "concurrently \"npm run api\" \"npm run client\"",
     "api": "node api/app.js",
@@ -16,6 +17,7 @@
     "crypto-js": "^4.1.1",
     "dotenv": "^14.2.0",
     "express": "^4.17.2",
+    "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.7",
     "nodemon": "^2.0.15"

@@ -6,7 +6,7 @@ import authRoutes from "./routes/authRoutes.js"
 import userRoutes from "./routes/userRoutes.js"
 import movieRoutes from "./routes/movieRoutes.js"
 import listRoutes from "./routes/listRoutes.js"
-import error404 from "./middleware/errorMiddleware.js"
+import { err404, errHandler } from "./middleware/errorMiddleware.js"
 const app = express()
 
 // CONFIG && DATABASE
@@ -19,8 +19,9 @@ app.use("/api/auth", authRoutes)
 app.use("/api/user", userRoutes)
 app.use("/api/movie", movieRoutes)
 app.use("/api/list", listRoutes)
-app.use(error404)
+app.use(err404)
+app.use(errHandler)
 
 // SERVER
-const PORT = process.env.PORT || 5000
-app.listen(PORT, () => console.log("server  : ✔️"))
+const { PORT } = process.env
+app.listen(PORT || 5000, () => console.log("server  : ✔️"))
