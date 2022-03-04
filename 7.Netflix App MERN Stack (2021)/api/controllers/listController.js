@@ -1,69 +1,46 @@
 import List from "../models/List.js"
+import asyncHandler from "express-async-handler"
 
 // @desc    Get list
 // @route   GET api/list
 // @access  Private
-const getLists = async (req, res) => {
+const getLists = asyncHandler(async (req, res) => {
   const { type, genre } = req.query
   let list = []
 
-  try {
-    if (type) {
-      if (genre) {
-        list = await List.aggregate([
-          { $sample: { size: 10 } },
-          { $match: { type, genre } },
-        ])
-      } else {
-        list = await List.aggregate([
-          { $sample: { size: 10 } },
-          { $match: { type } },
-        ])
-      }
+  if (type) {
+    if (genre) {
+      list = await List.aggregate([
+        { $sample: { size: 10 } },
+        { $match: { type, genre } },
+      ])
     } else {
-      list = await List.aggregate([{ $sample: { size: 10 } }])
+      list = await List.aggregate([
+        { $sample: { size: 10 } },
+        { $match: { type } },
+      ])
     }
-    // const list = await List.aggregate([
-    //   { $sample: { size: 10 } },
-    //   (type && genre) ?? {
-    //     $match: { type, genre },
-    //   },
-    //   type ?? {
-    //     $match: { type },
-    //   },
-    //   genre ?? {
-    //     $match: { genre },
-    //   },
-    // ])
-    res.status(200).json(list)
-  } catch (err) {
-    res.status(500).json(err.message)
+  } else {
+    list = await List.aggregate([{ $sample: { size: 10 } }])
   }
-}
+  res.status(200).json(list)
+})
 
 // @desc    Create new list
 // @route   POST api/list
 // @access  Private
-const createList = async (req, res) => {
-  try {
-    const newList = new List(req.body)
-    const savedList = await newList.save()
-    res.status(201).json(savedList)
-  } catch (err) {
-    res.status(500).json(err.message)
-  }
-}
+const createList = asyncHandler(async (req, res) => {
+  const newList = new List(req.body)
+  const savedList = await newList.save()
+  res.status(201).json(savedList)
+})
 
 // @desc    Delete list
 // @route   DELETE api/list/:id
 // @access  Private
-const deleteList = async (req, res) => {
-  try {
-    await List.findByIdAndDelete(req.params.id)
-    res.status(201).json("The list has been deleted! ⚠️")
-  } catch (err) {
-    res.status(500).json(err.message)
-  }
-}
+const deleteList = asyncHandler(async (req, res) => {
+  await List.findByIdAndDelete(req.params.id)
+  res.status(201).json("The list has been deleted! ⚠️")
+})
 
 export { getLists, createList, deleteList }

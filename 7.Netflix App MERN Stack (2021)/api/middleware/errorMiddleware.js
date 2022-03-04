@@ -1,6 +1,3 @@
-// export default (req, res) =>
-// res.status(404).json(`Page: ${req.originalUrl} not found! 🔴`)
-
 const err404 = (req, res, next) => {
   const error = new Error("Not Found: " + req.originalUrl)
   console.log("error 404")

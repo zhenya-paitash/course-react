@@ -30,13 +30,8 @@ const loginUser = asyncHandler(async (req, res) => {
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { username, email, password } = req.body
-  try {
-    const user = await User.create({ username, email, password })
-    res.status(201).json(user)
-  } catch (err) {
-    res.status(500)
-    throw new Error(err)
-  }
+  const user = await User.create({ username, email, password })
+  res.status(201).json(user)
 })
 
 export { loginUser, registerUser }
