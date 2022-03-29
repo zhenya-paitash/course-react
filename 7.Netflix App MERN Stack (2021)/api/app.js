@@ -10,7 +10,7 @@ import { err404, errHandler } from "./middleware/errorMiddleware.js"
 const app = express()
 
 // CONFIG && DATABASE
-config()
+config({ path: './.env' })
 connectDB()
 app.use(express.json())
 

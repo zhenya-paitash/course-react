@@ -19,9 +19,9 @@ export default function Watch() {
         className='video'
         title='vimeo'
         src='https://player.vimeo.com/video/125188503?autoplay=1&muted=1&h=69df6eddfc&color=ffffff&title=0&byline=0&portrait=0'
-        frameborder='0'
+        frameBorder='0'
         allow='autoplay; fullscreen; picture-in-picture'
-        allowfullscreen
+        // allowFullScreen
       ></iframe>
     </div>
   )
