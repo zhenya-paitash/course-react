@@ -9,6 +9,7 @@
 - 5 - ``MERN eCommerce From Scratch (2020) / udemy / Brad Traversy.``
 - 6 - <a href="https://github.com/zhenya-paitash/course_nextjs/tree/master/2.Advanced%20React%20and%20GraphQL%20(2021)">``Advanced React & GraphQL (2021) / advancedreact / Wes Bos.``</a> ***MOVED to*** <a href="https://github.com/zhenya-paitash/course_nextjs">course_nodejs</a>
 - 7 - ~~``Netflix App MERN Stack (2021) / youtube: ``<a href="https://youtu.be/FzWG8jiw4XM">``client``</a>  <a href="https://youtu.be/tsNswx0nRKM">``api``</a>`` / Lama Dev``~~ not finished*
+- 8 - ``Learn The MERN Stack (2022) / ``<a href="https://www.youtube.com/playlist?list=PLillGF-RfqbbQeVSccR9PGKHzPJSWqcsm">``youtube``</a>`` / Traversy Media``
 
 ##### Test versions:
 
