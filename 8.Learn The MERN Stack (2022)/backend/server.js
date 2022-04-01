@@ -1,9 +1,9 @@
 // EXPORT
 const express = require('express')
-const colors = require('colors')
 const { errHandler } = require('./middleware/errorMiddleware')
 const { config } = require('dotenv')
 const connectDB = require('./config/db')
+require('colors')
 
 // CONFIG
 config({ path: './.env' })
@@ -15,7 +15,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 // ROUTES
-app.use('/api/goals', require('./routes/goalRoutes'))
+app.use('/api/goal', require('./routes/goalRoutes'))
+app.use('/api/user', require('./routes/userRoutes'))
 
 // ERROR
 app.use(errHandler)
