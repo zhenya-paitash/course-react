@@ -6,7 +6,7 @@ const connectDB = require('./config/db')
 require('colors')
 
 // CONFIG
-config({ path: './.env' })
+config()
 connectDB()
 const app = express()
 const port = process.env.PORT || 5000
@@ -22,6 +22,4 @@ app.use('/api/user', require('./routes/userRoutes'))
 app.use(errHandler)
 
 // SERVER
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`)
-})
+app.listen(port, () => console.log(`Server started on port ${port}`))

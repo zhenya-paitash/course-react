@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js",
-    "client": "npm start --prefix frontend"
+    "client": "npm start --prefix frontend",
+    "client:init": "npx create-react-app@latest frontend --template redux"
   },
   "author": "Brad Traversy",
   "license": "MIT",
