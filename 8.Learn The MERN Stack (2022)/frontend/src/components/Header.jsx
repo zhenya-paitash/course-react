@@ -26,7 +26,7 @@ export default function Header() {
       <ul>
         {user ? (
           <li>
-            <button className='btn' onClick={onLogout}>
+            <button className='btn btn-reverse' onClick={onLogout}>
               <IoPersonOutline /> Logout
             </button>
           </li>

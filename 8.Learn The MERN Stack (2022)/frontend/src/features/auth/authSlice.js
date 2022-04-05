@@ -23,29 +23,23 @@ export const register = createAsyncThunk(
         (err.response && err.response.data && err.response.data.message) ||
         err.message ||
         err.toString()
-
       return thunkAPI.rejectWithValue(message)
     }
   }
 )
-
 
 // Login user
-export const login = createAsyncThunk(
-  'auth/login',
-  async (user, thunkAPI) => {
-    try {
-      return await authService.login(user)
-    } catch (err) {
-      const message =
-        (err.response && err.response.data && err.response.data.message) ||
-        err.message ||
-        err.toString()
-
-      return thunkAPI.rejectWithValue(message)
-    }
+export const login = createAsyncThunk('auth/login', async (user, thunkAPI) => {
+  try {
+    return await authService.login(user)
+  } catch (err) {
+    const message =
+      (err.response && err.response.data && err.response.data.message) ||
+      err.message ||
+      err.toString()
+    return thunkAPI.rejectWithValue(message)
   }
-)
+})
 
 // Logout
 export const logout = createAsyncThunk(
