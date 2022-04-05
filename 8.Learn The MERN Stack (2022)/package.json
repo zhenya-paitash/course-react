@@ -5,9 +5,10 @@
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js",
+    "server": "nodemon backend/server.js",
     "client": "npm start --prefix frontend",
-    "client:init": "npx create-react-app@latest frontend --template redux"
+    "client:init": "npx create-react-app@latest frontend --template redux",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "Brad Traversy",
   "license": "MIT",
@@ -21,6 +22,7 @@
     "mongoose": "^6.2.9"
   },
   "devDependencies": {
+    "concurrently": "^7.1.0",
     "nodemon": "^2.0.15"
   }
 }
