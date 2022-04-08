@@ -18,3 +18,4 @@
 - **<a href="https://react-firegram-edd0e.web.app/">Firegram</a>**
 - **<a href="https://mern-zptest.herokuapp.com/">MERN Stack: React, Redux & Node.js</a>**
 - **<a href="https://mern2021heroku.herokuapp.com/">MERN eCommerce from scratch</a>**
+- **<a href="https://learn-the-mern-stack-2022.herokuapp.com/">Learn The MERN Stack (2022)</a>**

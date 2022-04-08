@@ -4,9 +4,7 @@
 
 # config
 .env
+.env.production
 
 # vscode
 /.vscode
-
-# frontend
-frontend
