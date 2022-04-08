@@ -6,6 +6,7 @@ import {
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../features/auth/authSlice'
+import { reset as goalsReset } from '../features/goals/goalSlice'
 
 export default function Header() {
   const navigate = useNavigate()
@@ -15,6 +16,7 @@ export default function Header() {
   const onLogout = () => {
     dispatch(logout())
     dispatch(reset())
+    dispatch(goalsReset())
     navigate('/')
   }
 
@@ -26,7 +28,7 @@ export default function Header() {
       <ul>
         {user ? (
           <li>
-            <button className='btn btn-reverse' onClick={onLogout}>
+            <button className='btn' onClick={onLogout}>
               <IoPersonOutline /> Logout
             </button>
           </li>

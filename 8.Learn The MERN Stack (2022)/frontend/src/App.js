@@ -19,7 +19,12 @@ function App() {
           </Routes>
         </div>
       </Router>
-      <ToastContainer />
+      <ToastContainer
+        hideProgressBar
+        autoClose={4000}
+        // theme={'dark'}
+        limit={3}
+      />
     </>
   )
 }

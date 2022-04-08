@@ -21,6 +21,7 @@ export default function Login() {
 
   useEffect(() => {
     if (isError) toast.error(message)
+    if (isSuccess && user) toast.info(`Welcome ${user.name}`)
     if (isSuccess || user) navigate('/')
     dispatch(reset())
   }, [user, isError, isSuccess, message, navigate, dispatch])
