@@ -2,13 +2,13 @@
 
 ## Courses:
 
-1. ❌ React + Redux - Professional Development (2020) / udemy / Yuri Bura ``[56/100%]``
+1. ❌ React + Redux - Professional Development (2020) / udemy / Yuri Bura *``[56/100%]``*
 2. ✔️ React JS. Practical Course (2020) / udemy / Vladilen Minin
 3. ✔️ Firegram / <a href="https://youtu.be/vUe91uOx7R0">youtube</a> / Traversy Media
 4. ✔️ MERN Stack Front To Back: Full Stack React, Redux & Node.js (2019) / udemy / Brad Traversy
 5. ✔️ MERN eCommerce From Scratch (2020) / udemy / Brad Traversy
-6. ✔️ <a href="https://github.com/zhenya-paitash/course_nextjs/tree/master/2.Advanced%20React%20and%20GraphQL%20(2021)">Advanced React & GraphQL (2021) / advancedreact / Wes Bos</a> *replaced to* <a href="https://github.com/zhenya-paitash/course_nextjs">next.js course</a>
-7. ❌ Netflix App MERN Stack (2021) / youtube: <a href="https://youtu.be/FzWG8jiw4XM">client</a> & <a href="https://youtu.be/tsNswx0nRKM">api</a> / Lama Dev ``[not finished]``
+6. ✔️ <a href="https://github.com/zhenya-paitash/course_nextjs/tree/master/2.Advanced%20React%20and%20GraphQL%20(2021)">Advanced React & GraphQL (2021) / advancedreact / Wes Bos</a> *``[replaced]``* <a href="https://github.com/zhenya-paitash/course_nextjs">next.js course</a>
+7. ❌ Netflix App MERN Stack (2021) / youtube: <a href="https://youtu.be/FzWG8jiw4XM">client</a> & <a href="https://youtu.be/tsNswx0nRKM">api</a> / Lama Dev *``[not finished]``*
 8. ✔️ Learn The MERN Stack (2022) / <a href="https://www.youtube.com/playlist?list=PLillGF-RfqbbQeVSccR9PGKHzPJSWqcsm">youtube</a> / Traversy Media
 
 ## Test versions:
